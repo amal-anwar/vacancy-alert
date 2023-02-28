@@ -1,9 +1,9 @@
 import bs4, requests, smtplib
 
-toAddress = ['amalanwar1@gmail.com']
+toAddress = ['email_address']
 
 #to download page
-getPage = requests.get('https://www.mdx.ac.ae/student-vacancies')
+getPage = requests.get('site name')
 getPage.raise_for_status()
 
 #Parse text for vacancy
@@ -24,8 +24,8 @@ if available == True:
   conn = smtplib.SMTP('smtp.gmail.com',587)
   conn.ehlo()
   conn.starttls()
-  conn.login('amalanwar1@gmail.com','appkey')
-  conn.sendemail('amalanwar1@gmail.com', toAddress, 'Subject: Vacancy alert')
+  conn.login('email_address','appkey')
+  conn.sendemail('emal_Address', toAddress, 'Subject: Vacancy alert')
   conn.quit()
   print('Sent notification emails for the following recipients: \n')
   for i in range(len(toAddress)):
